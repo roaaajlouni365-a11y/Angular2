@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  margin: 0 clamp(16px, 5vw, 64px) 32px;
+  padding: 24px;
+  border: 1px solid #f4ccda;
+  border-radius: 18px;
+  background: linear-gradient(135deg, white, #fff3f7);
+  box-shadow: 0 8px 24px #a8325c12;
+}
+
+h2 {
+  margin: 0 0 18px;
+  color: #a8325c;
+}
+
+h3 {
+  color: #81304c;
+}
+
+img {
+  display: block;
+  width: min(100%, 280px);
+  height: 210px;
+  object-fit: cover;
+  border: 5px solid white;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px #a8325c24;
+}
+
+p {
+  margin: 12px 0;
+  color: #60404c;
+}
