@@ -1,5 +1,22 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <app-product-list></app-product-list>
-<app-product-details></app-product-details>
+
+
+
+<app-product-details
+  [productName]="ProductName()"
+  [productDescription]="ProductDescription()"
+  [productPrice]="ProductPrice()"
+  [isAvailable]="IsAvailable()"
+  (addToCart)="handleAddToCart($event)">
+</app-product-details>
+
+
+<app-shopping-cart
+  [productName]="cartProductName"
+  [productPrice]="cartProductPrice"
+  [quantity]="cartQuantity">
+</app-shopping-cart>
+
 <app-footer></app-footer>

@@ -8,10 +8,17 @@
 
 <p>Price: ${{productPrice}}</p>
 
-<p>Quantity: {{quantity}}</p>
+
+<button (click)="decreaseQuantity()">-</button>
+ {{ quantity() }}
+<button (click)="increaseQuantity()">+</button>
+
+<button  (click)="addProductToCart()">Add to Cart</button>
+
 
 <p>Availability: {{isAvailable ? 'Available' : 'Unavailable'}}</p>
 
 <p>Discount: {{discountPercentage}}%</p>
 
 <p>Final Price: ${{productPrice - (productPrice * discountPercentage / 100)}}</p>
+
