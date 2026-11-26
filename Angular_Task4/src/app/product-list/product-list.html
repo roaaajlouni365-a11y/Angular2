@@ -1,0 +1,91 @@
+<section class="categories">
+  <h2>Categories</h2>
+  <div class="category-list">
+    <span>All Products</span>
+    <span>Electronics</span>
+    <span>Accessories</span>
+  </div>
+
+  @if (selectedCategory === 'All Products') {
+    <p>Showing all products.</p>
+  } @else if (selectedCategory === 'Electronics') {
+    <p>Showing electronics products.</p>
+  } @else if (selectedCategory === 'Accessories') {
+    <p>Showing accessories.</p>
+  } @else {
+    <p>Category not found.</p>
+  }
+</section>
+
+<section class="order-status">
+  <h2>Order Status</h2>
+  @switch (orderStatus) {
+    @case ('Pending') {
+      <p>Your order is waiting for confirmation.</p>
+    }
+    @case ('Processing') {
+      <p>Your order is being prepared.</p>
+    }
+    @case ('Shipped') {
+      <p>Your order has been shipped.</p>
+    }
+    @case ('Delivered') {
+      <p>Your order has been delivered.</p>
+    }
+    @default {
+      <p>Unknown Order Status.</p>
+    }
+  }
+</section>
+
+<section class="products-section">
+  <h2>ElectroShop Products</h2>
+  <div class="product-grid">
+    @for (product of products; track product.id) {
+      <article
+        class="product-card"
+        [ngClass]="{
+          'discount-card': product.discount > 0,
+          'available-card': product.isAvailable,
+          'unavailable-card': !product.isAvailable,
+          'premium-card': product.price > 500
+        }"
+        [ngStyle]="{ opacity: product.isAvailable ? '1' : '0.55' }">
+        <img [src]="product.image" [alt]="product.name">
+        <div class="product-info">
+          <span class="category">{{ product.category }}</span>
+          <h3>{{ product.name }}</h3>
+
+          @if (product.isAvailable) {
+            <p class="availability">Available</p>
+          } @else {
+            <p class="availability">Out of Stock</p>
+          }
+
+          @if (product.discount > 0) {
+            <p class="offer">Special Offer: {{ product.discount }}% off</p>
+          } @else {
+            <p class="no-discount">No Discount</p>
+          }
+
+          <p
+            class="price"
+            [ngStyle]="{
+              color: product.discount > 0 ? 'red' : 'black',
+              'font-size': product.price > 500 ? '1.35rem' : '1.05rem'
+            }">
+            {{ product.price }} JD
+          </p>
+
+          @if (product.price > 500) {
+            <p class="premium-label">Premium Product</p>
+          }
+
+          @if (product.isAvailable) {
+            <button type="button">Buy Now</button>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,13 @@
+:host {
+  --pink-50: #fff5f8;
+  --pink-100: #ffe4ec;
+  --pink-200: #fecddc;
+  --pink-400: #f4729a;
+  --pink-500: #ec5b87;
+  --pink-700: #a8325c;
+  --ink: #38232c;
+  display: block;
+  min-height: 100vh;
+  color: var(--ink);
+  background: linear-gradient(180deg, #fff8fa 0%, #fff 38%, #fff7fa 100%);
+}

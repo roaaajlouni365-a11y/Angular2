@@ -1,0 +1,24 @@
+<h2>Product Details</h2>
+
+<h3>{{productName}}</h3>
+
+<img [src]="productImage" width="200">
+
+<p>Description: {{productDescription}}</p>
+
+<p>Price: ${{productPrice}}</p>
+
+
+<button (click)="decreaseQuantity()">-</button>
+ {{ quantity() }}
+<button (click)="increaseQuantity()">+</button>
+
+<button  (click)="addProductToCart()">Add to Cart</button>
+
+
+<p>Availability: {{isAvailable ? 'Available' : 'Unavailable'}}</p>
+
+<p>Discount: {{discountPercentage}}%</p>
+
+<p>Final Price: ${{productPrice - (productPrice * discountPercentage / 100)}}</p>
+
